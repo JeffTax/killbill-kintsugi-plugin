@@ -167,6 +167,14 @@
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
+        <!-- Bundled at runtime: PluginProperties (via killbill-base-plugin) uses
+             org.killbill.commons.utils.collect.Iterables; without this the OSGi
+             bundle fails with ClassNotFoundException on invoice generation. -->
+        <dependency>
+            <groupId>org.kill-bill.commons</groupId>
+            <artifactId>killbill-utils</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
