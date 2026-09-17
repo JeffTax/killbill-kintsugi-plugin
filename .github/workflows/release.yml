@@ -1,9 +1,16 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:
+    inputs:
+      parent_version:
+        description: 'New killbill-oss-parent version'
+        required: false
+        default: ''
+      perform_version:
+        description: 'tag to (re-)perform (in case of release:perform failure)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
